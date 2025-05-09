@@ -1,4 +1,4 @@
-# 🔥 IgnisBot – Robot autonome de détection et d’extinction de feu 🌊
+<h1 align="center">🔥 IgnisBot – Robot autonome de détection et d’extinction de feu 🌊</h1>
 
 <p align="center">
   <img src="images/IgnisBOT_logo.png" width="180" alt="Logo d’IgnisBot" />
@@ -18,9 +18,9 @@
 
 ## 📋 Table des matières
 
-- [Fonctionnalités](#fonctionnalités)
-- [Démonstration](#démonstration)
-- [Matériel requis](#matériel-requis)
+- [Fonctionnalités](#fonctionnalites)
+- [Demonstration](#demonstration)
+- [Materiel requis](#materiel-requis)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
 - [Structure du projet](#structure-du-projet)
