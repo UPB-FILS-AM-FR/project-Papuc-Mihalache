@@ -23,10 +23,10 @@
   La motivation derrière IgnisBot repose sur la montée des incendies liés au changement climatique, notamment dans les zones boisées, où les ressources d’intervention sont souvent insuffisantes. Ce robot symbolise une solution autonome de détection et de réaction face à un départ de feu, en illustrant le potentiel de la technologie embarquée dans des contextes critiques. Il constitue un outil d'apprentissage pour initier les étudiants à l’électronique, à la robotique mobile et à la programmation appliquée. En combinant utilité, apprentissage et conscience environnementale, IgnisBot représente une approche moderne de la formation par projet.
 </p>
 
-<h3>Architecture</h3>
+<h1>Architecture</h1>
 <p>L'architecture d'IgnisBot repose sur une structure modulaire combinant détection, décision et action, organisée autour de la carte microcontrôleur Arduino Uno.</p>
 
-<h4>Diagramme fonctionnel </h4>
+<h2>Diagramme fonctionnel </h2>
 <p>Ce diagramme montre les interactions principales entre les composants du robot.</p>
 
 <p align="center">
@@ -36,7 +36,7 @@
    Le diagramme fonctionnel présente de façon simplifiée l’architecture logique du système. Il permet de visualiser les fonctions principales du robot ainsi que les échanges d’informations entre les différents modules. Ce schéma joue un rôle clé pour comprendre comment chaque composant contribue à la mission du robot et comment l’ensemble coopère pour assurer un fonctionnement autonome et coordonné.
  </p>
 
-<h4>Schéma électronique (Schematic)</h4>
+<h2>Schéma électronique</h2>
 <p>Le schéma suivant illustre les connexions électriques du projet</p>
 
 <p align="center">
@@ -45,8 +45,8 @@
 
 <p>Le schéma électrique illustre le câblage réel de tous les composants du robot, en montrant les connexions entre la carte Arduino Uno, les capteurs de flamme, le servomoteur, les moteurs, le module L298N, la pompe, le relais et les sources d’alimentation. Il permet de visualiser précisément la circulation des signaux et de l’énergie dans le système. Ce schéma est essentiel pour assembler le robot correctement, et il constitue une base précieuse pour le prototypage, la maintenance ou la reproduction du projet.</p>
 
-<h3>Matériel requis</h3>
-<h4>Composants électroniques</h4>
+
+<h1>Composants électroniques</h1>
 
 <table border="1" cellpadding="8" cellspacing="0">
   <thead>
@@ -204,7 +204,7 @@
 
 
 
-<h3>Journal de bord (Logs)</h3>
+<h1>Journal de bord</h1>
 
 <table border="1" cellpadding="8" cellspacing="0">
   <thead>
@@ -256,7 +256,7 @@
 </table>
 
 
-<h3>🔗 Liens de référence</h3>
+<h1>Liens de référence</h1>
 
 <ul>
   <li>
@@ -291,6 +291,4 @@
   </li>
 </ul>
 
-
----
 
