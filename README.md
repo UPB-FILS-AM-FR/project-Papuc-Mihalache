@@ -255,6 +255,19 @@
   </tbody>
 </table>
 
+<h1>Galerie photo</h1>
+ <img src="images/p1.png"  width="80%">
+  <img src="images/p2.png"  width="80%">
+   <img src="images/p3.png"  width="80%">
+    <img src="images/p4.png"  width="80%">
+     <img src="images/p5.png"  width="80%">
+      <img src="images/p6.png"  width="80%">
+       <img src="images/p7.png"  width="80%">
+        <img src="images/p8.png"  width="80%">
+         <img src="images/p9.png"  width="80%">
+          <img src="images/p10.png"  width="80%">
+
+
 
 <h1>LIENS DE RÉFÉRENCE</h1>
 
