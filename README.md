@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/IgnisBOT_logo.png" alt="IgnisBot Logo" width="200">
+</p>
+
 <h1 align="center"> IgnisBot <br>
   Robot autonome de détection et d’extinction de feu</h1>
 
@@ -60,13 +64,6 @@
   </thead>
   <tbody>
     <tr>
-      <td>Résistance 0,25W 1kΩ</td>
-      <td>5</td>
-      <td>0,10</td>
-      <td>0,50</td>
-      <td>Protection et limitation de courant pour signaux ou LED</td>
-    </tr>
-    <tr>
       <td>Module pilote de moteur double L298N (rouge)</td>
       <td>1</td>
       <td>10,99</td>
@@ -102,18 +99,18 @@
       <td>Alimentation portable du robot</td>
     </tr>
     <tr>
+      <td>Support individuel pour batterie 18650</td>
+      <td>1</td>
+      <td>1,73</td>
+      <td>1,73</td>
+      <td>Fixation d’une seule cellule 18650 pour extension</td>
+    </tr>
+    <tr>
       <td>Servomoteur MG90S</td>
       <td>1</td>
       <td>19,33</td>
       <td>19,33</td>
       <td>Orientation de la buse/pulvérisateur pour extinction</td>
-    </tr>
-    <tr>
-      <td>Diode 1N4148-NXP</td>
-      <td>2</td>
-      <td>0,49</td>
-      <td>0,98</td>
-      <td>Protection contre les surtensions (roues libres)</td>
     </tr>
     <tr>
       <td>Moteur avec réducteur et roue</td>
@@ -144,10 +141,10 @@
       <td>Détection des flammes dans l’environnement</td>
     </tr>
     <tr>
-      <td>Tuyau pour pompe à eau 6x8 mm (1 mètre)</td>
-      <td>1</td>
+      <td>Tuyau pour pompe à eau 6x8 mm (2 mètres)</td>
+      <td>2</td>
       <td>5,26</td>
-      <td>5,26</td>
+      <td>10,52</td>
       <td>Acheminement de l’eau vers la sortie du système</td>
     </tr>
     <tr>
@@ -166,42 +163,72 @@
     </tr>
     <tr>
       <td>Fils dupont mâle-mâle 30 cm</td>
-      <td>1</td>
+      <td>2</td>
       <td>6,67</td>
-      <td>6,67</td>
+      <td>13,34</td>
       <td>Connexions longues pour signaux ou alimentation</td>
     </tr>
     <tr>
-      <td>Kit de condensateurs céramiques (300 pièces)</td>
-      <td>1</td>
-      <td>10,08</td>
-      <td>10,08</td>
-      <td>Filtrage des parasites et stabilisation des signaux</td>
-    </tr>
-    <tr>
-      <td>Pile 18650 (individuelle)</td>
-      <td>2</td>
+      <td>Batteries 18650 (individuelles)</td>
+      <td>3</td>
       <td>18,00</td>
-      <td>36,00</td>
+      <td>54,00</td>
       <td>Source principale d’énergie (batteries rechargeables)</td>
     </tr>
     <tr>
-      <td>Transisteur</td>
+      <td>Module relai 5V, commande High Level</td>
       <td>1</td>
-      <td>12,00</td>
-      <td>12,00</td>
-      <td>Interrupteur contrôlé électroniquement</td>
+      <td>5,50</td>
+      <td>5,50</td>
+      <td>Activation de la pompe ou autres charges via Arduino</td>
+    </tr>
+    <tr>
+      <td>Supports métalliques en L</td>
+      <td>2</td>
+      <td>2,40</td>
+      <td>4,80</td>
+      <td>Fixation de la pompe et du réservoir d’eau</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
       <th colspan="3" style="text-align:right">Total général :</th>
-      <th><strong>309,76 lei</strong></th>
+      <th><strong>279,80 lei</strong></th>
       <th></th>
     </tr>
   </tfoot>
 </table>
 
+<h2>LIBRAIRIES UTILISÉES</h2>
+
+<p><strong>Aucune bibliothèque externe n’a été utilisée dans ce projet.</strong></p>
+
+<pre><code>// Exemple : aucun #include de type &lt;Servo.h&gt; ou &lt;NewPing.h&gt;
+// Le servomoteur est contrôlé manuellement :
+void servoPulse (int pin, int angle) {
+  int pwm = (angle * 11) + 500; // Conversion de l’angle en microsecondes
+  digitalWrite(pin, HIGH);
+  delayMicroseconds(pwm);
+  digitalWrite(pin, LOW);
+  delay(50); // Cycle de rafraîchissement du servo
+}
+</code></pre>
+
+<p>
+Toutes les fonctionnalités du robot, telles que :
+<ul>
+  <li>la lecture des capteurs infrarouges (via <code>analogRead</code>),</li>
+  <li>le déplacement via pont en H L298N (avec <code>digitalWrite</code>, <code>analogWrite</code>),</li>
+  <li>le déclenchement de la pompe (via <code>digitalWrite</code>),</li>
+  <li>et le balayage du servomoteur,</li>
+</ul>
+ont été <strong>implémentées sans utiliser de librairie Arduino externe</strong>.
+</p>
+
+<blockquote>
+  Ce choix montre une compréhension approfondie du fonctionnement des composants électroniques,
+  sans dépendre de bibliothèques préconstruites.
+</blockquote>
 
 
 <h1>JOURNAL DE BORD</h1>
@@ -245,63 +272,213 @@
     <tr>
       <td>Semaine 3</td>
       <td>13 – 19 mai</td>
-      <td>—</td>
+      <td>
+        <ul>
+          <li>Assemblage final de la structure matérielle (hardware)</li>
+          <li>Liaison complète de tous les composants (capteurs, relais, pompe, alimentation)</li>
+          <li>Tests et mise en service de la pompe à eau</li>
+          <li>Remodelage du châssis pour meilleure stabilité</li>
+          <li>Finalisation de la partie logicielle (programme complet de détection et extinction)</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>Semaine 4</td>
       <td>20 – 26 mai</td>
-      <td>—</td>
+      <td>
+        <ul>
+          <li>Touches finales du robot</li>
+          <li>Fixation et organisation des câbles pour une reconnaissance facile et un aspect soigné</li>
+          <li>Création des schémas techniques (électronique et fonctionnel)</li>
+          <li>Rédaction et mise en page finale du projet</li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<h1>Galerie photo</h1>
- <img src="images/p1.jpeg"  width="80%">
-  <img src="images/p2.jpeg"  width="80%">
-   <img src="images/p3.jpeg"  width="80%">
-    <img src="images/p4.jpeg"  width="80%">
-     <img src="images/p5.jpeg"  width="80%">
-      <img src="images/p6.jpeg"  width="80%">
-       <img src="images/p7.jpeg"  width="80%">
-        <img src="images/p8.jpeg"  width="80%">
-         <img src="images/p9.jpeg"  width="80%">
-          <img src="images/p10.jpeg"  width="80%">
+<h2>SUIVI DU TEMPS DE TRAVAIL</h2>
+
+<p>Ce tableau présente la répartition des heures de travail estimées pour la réalisation complète du projet <strong>IgnisBot</strong>.</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tâches réalisées</th>
+      <th>Durée en heures</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recherche d’idées de conception sur Internet, analyse de projets similaires de robots pompiers</td>
+      <td>3 h</td>
+    </tr>
+    <tr>
+      <td>Étude de la détection de flamme et documentation sur les capteurs KY-026, les servomoteurs (pompe) et la carte Arduino</td>
+      <td>3 h</td>
+    </tr>
+    <tr>
+      <td>Commandes des composants et planification de l’architecture technique</td>
+      <td>2 h</td>
+    </tr>
+    <tr>
+      <td>Montage initial du châssis, installation des moteurs, supports, roues, connexion au L298N et test de direction</td>
+      <td>4 h</td>
+    </tr>
+    <tr>
+      <td>Installation et test des capteurs de flamme avec Arduino UNO</td>
+      <td>3 h</td>
+    </tr>
+    <tr>
+      <td>Programmation du système de balayage automatique avec servomoteur</td>
+      <td>5 h</td>
+    </tr>
+    <tr>
+      <td>Test de la pompe à eau, relais 5V, et pulvérisation directionnelle</td>
+      <td>4 h</td>
+    </tr>
+    <tr>
+      <td>Optimisation de la logique de détection + extinction ciblée</td>
+      <td>4 h</td>
+    </tr>
+    <tr>
+      <td>Fixation des câbles, ajout de supports métalliques, vérification esthétique</td>
+      <td>3 h</td>
+    </tr>
+    <tr>
+      <td>Création du schéma électronique et du diagramme fonctionnel</td>
+      <td>3,5 h</td>
+    </tr>
+    <tr>
+      <td>Documentation complète sur GitHub + rédaction du journal de bord</td>
+      <td>3 h</td>
+    </tr>
+    <tr>
+      <td>Photos finales, ajustements de la page et démo du projet</td>
+      <td>3 h</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Total d’heures travaillées :</th>
+      <th><strong>45,5 heures</strong></th>
+    </tr>
+  </tfoot>
+</table>
 
 
+<h2>🔧 APERÇU DU CODE</h2>
 
-<h1>LIENS DE RÉFÉRENCE</h1>
+<h3>Initialisation des broches</h3>
 
 <ul>
-  <li>
-    <a href="https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/" target="_blank">
-      Tutoriel complet sur le module L298N (contrôle moteurs)
-    </a>
+  <li><strong>Capteurs de flamme :</strong>
+    <ul>
+      <li><code>ir_L</code>, <code>ir_F</code>, <code>ir_R</code> : capteurs infrarouges pour la gauche, l'avant et la droite.</li>
+    </ul>
   </li>
-  <li>
-    <a href="https://components101.com/sensors/flame-sensor-module" target="_blank">
-      Informations techniques sur le capteur de flamme KY-026
-    </a>
+  <li><strong>Contrôle des moteurs :</strong>
+    <ul>
+      <li><code>in1</code>, <code>in2</code>, <code>in3</code>, <code>in4</code> : broches de direction des moteurs gauche et droit.</li>
+      <li><code>enA</code>, <code>enB</code> : PWM pour contrôler la vitesse des moteurs.</li>
+    </ul>
   </li>
-  <li>
-    <a href="https://docs.arduino.cc/tutorials/components/servo-motors" target="_blank">
-      Guide Arduino officiel sur les servomoteurs
-    </a>
+  <li><strong>Pompe :</strong>
+    <ul>
+      <li><code>pump</code> : broche pour activer la pompe à eau via relais 5V.</li>
+    </ul>
   </li>
-  <li>
-    <a href="https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-sensor/" target="_blank">
-      Tutoriel DHT11/DHT22 avec microcontrôleur
-    </a>
-  </li>
-  <li>
-    <a href="https://www.hackster.io/search?i=projects&q=fire%20fighting%20robot" target="_blank">
-      Projets similaires de robots pompiers sur Hackster.io
-    </a>
-  </li>
-  <li>
-    <a href="https://wokwi.com/" target="_blank">
-      Wokwi – simulateur en ligne pour projets Arduino
-    </a>
+  <li><strong>Servomoteur :</strong>
+    <ul>
+      <li><code>servo</code> : contrôle du balayage gauche-droite (90° ↔ 180°).</li>
+    </ul>
   </li>
 </ul>
+
+<hr>
+
+<h3>Contrôle des moteurs</h3>
+
+<ul>
+  <li>Le robot utilise deux moteurs DC pour avancer, reculer, tourner à gauche et à droite.</li>
+  <li>La vitesse est définie par PWM (de 0 à 255). Dans ce projet, une valeur fixe <code>Speed = 160</code> est utilisée.</li>
+  <li>Les fonctions <code>forword()</code>, <code>backword()</code>, <code>turnLeft()</code>, <code>turnRight()</code> assurent le mouvement.</li>
+</ul>
+
+<hr>
+
+<h3>Mode automatique</h3>
+
+<p>En <strong>mode automatique</strong>, le robot détecte les flammes à l’aide des capteurs infrarouges :</p>
+
+<ul>
+  <li>Si un feu est détecté à droite (<code>ir_R</code>), la pompe s’active et le servomoteur balaie de 90° à 40°.</li>
+  <li>Si la flamme est devant (<code>ir_F</code>), le robot stoppe et balaie toute la zone avec la pompe.</li>
+  <li>Si elle est à gauche (<code>ir_L</code>), la pompe s’active avec balayage inversé.</li>
+  <li>En absence de feu, il avance ou change de direction selon la position.</li>
+</ul>
+
+<hr>
+
+<h3>Lecture des capteurs</h3>
+
+<ul>
+  <li>Les capteurs sont lus avec <code>analogRead()</code> : si la valeur est &lt; 250, on considère qu’une flamme est détectée.</li>
+  <li>Les résultats sont affichés sur le moniteur série pour le débogage.</li>
+</ul>
+
+
+<h1>Galerie photo</h1>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  <img src="images/p1.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p2.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p3.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p4.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p5.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p6.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p7.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p8.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p9.jpeg" style="width: 20%; min-width: 100px;">
+  <img src="images/p10.jpeg" style="width: 20%; min-width: 100px;">
+</div>
+
+
+<h3>AMÉLIORATIONS FUTURES</h3>
+<ul>
+  <li>Ajout d’un module Bluetooth ou Wi-Fi pour contrôle manuel ou télémétrie</li>
+  <li>Remplacement des capteurs IR par des capteurs de flamme plus précis (IR thermopile)</li>
+  <li>Utilisation d’un écran LCD pour afficher les états et les alertes</li>
+  <li>Passage à un microcontrôleur ESP32 pour plus de puissance et connectivité</li>
+  <li>Ajout d’un capteur de température pour croiser les données de flamme</li>
+</ul>
+
+
+
+<h2>LIENS DE RÉFÉRENCE</h2>
+
+<h3>Vidéos de démonstration de robots similaires</h3>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=_QzmknHTXfM" target="_blank">Détection automatique de feu et extinction – Projet robot</a></li>
+  <li><a href="https://www.youtube.com/watch?v=jsvAL9ogFBw" target="_blank">Robot Firefighter – démonstration</a></li>
+  <li><a href="https://www.youtube.com/watch?v=6rAVhszhOGw" target="_blank">Robot Fire Extinguisher – prototype avec pompe</a></li>
+  <li><a href="https://www.youtube.com/watch?v=-9NscCoi6cY" target="_blank">Mini robot pompier contrôlé par capteurs</a></li>
+</ul>
+
+<h3>Tutoriels vidéo pour composants électroniques</h3>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=_I-7XYaAtAo" target="_blank">Comprendre les relais 5V – Tutoriel complet</a></li>
+  <li><a href="https://www.youtube.com/watch?v=OZkZIP3KlHQ" target="_blank">Introduction au module L298N – Contrôle de moteurs DC</a></li>
+</ul>
+
+<h3>Fiches techniques officielles (Datasheets)</h3>
+<ul>
+  <li><a href="https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf" target="_blank">Arduino UNO – Fiche technique officielle</a></li>
+  <li><a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/38/50200_Web.pdf" target="_blank">Pompe R385 – Spécifications techniques</a></li>
+  <li><a href="https://www.electronicoscaldas.com/datasheet/MG90S_Tower-Pro.pdf" target="_blank">Servomoteur MG90S – Fiche technique</a></li>
+  <li><a href="https://moviltronics.com/wp-content/uploads/2019/10/KY-026.pdf" target="_blank">Capteur de flamme KY-026 – Datasheet PDF</a></li>
+  <li><a href="https://components101.com/sites/default/files/component_datasheet/5V%20Relay%20Datasheet.pdf" target="_blank">Relais 5V – Fiche technique détaillée</a></li>
+  <li><a href="https://www.handsontec.com/dataspecs/L298N%20Motor%20Driver.pdf" target="_blank">L298N Motor Driver – Documentation PDF</a></li>
+</ul>
+
 
 
