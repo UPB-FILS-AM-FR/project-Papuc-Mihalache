@@ -367,7 +367,7 @@ ont été <strong>implémentées sans utiliser de librairie Arduino externe</str
 </table>
 
 
-<h2>🔧 APERÇU DU CODE</h2>
+<h2>APERÇU DU CODE</h2>
 
 <h3>Initialisation des broches</h3>
 
@@ -428,7 +428,7 @@ ont été <strong>implémentées sans utiliser de librairie Arduino externe</str
 </ul>
 
 
-<h1>Galerie photo</h1>
+<h1>GALERIE PHOTO</h1>
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
   <img src="images/p1.jpeg" style="width: 20%; min-width: 100px;">
   <img src="images/p2.jpeg" style="width: 20%; min-width: 100px;">
@@ -442,6 +442,10 @@ ont été <strong>implémentées sans utiliser de librairie Arduino externe</str
   <img src="images/p10.jpeg" style="width: 20%; min-width: 100px;">
 </div>
 
+<h3>VIDÉO DE DÉMONSTRATION</h3>
+<video width="640" height="360" controls>
+  <source src="images/IgnisBot_petitTesT.mp4" type="video/mp4">
+</video>
 
 <h3>AMÉLIORATIONS FUTURES</h3>
 <ul>
