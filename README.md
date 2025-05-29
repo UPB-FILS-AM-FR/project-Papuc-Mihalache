@@ -443,9 +443,7 @@ ont été <strong>implémentées sans utiliser de librairie Arduino externe</str
 </div>
 
 <h3>VIDÉO DE DÉMONSTRATION</h3>
-<video width="640" height="360" controls>
-  <source src="images/IgnisBot_petitTesT.mp4" type="video/mp4">
-</video>
+[Télécharger IgnisBot_petitTesT.mp4](https://github.com/UPB-FILS-AM-FR/project-Papuc-Mihalache/raw/main/images/IgnisBot_petitTesT.mp4)
 
 <h3>AMÉLIORATIONS FUTURES</h3>
 <ul>
